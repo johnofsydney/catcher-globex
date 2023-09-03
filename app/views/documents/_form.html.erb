@@ -1,0 +1,38 @@
+<%= form_with(model: document, class: "bg-white rounded-lg shadow-lg p-6") do |form| %>
+  <% if document.errors.any? %>
+    <div class="text-red-500 mb-4">
+      <h2><%= pluralize(document.errors.count, "error") %> prohibited this document from being saved:</h2>
+
+      <ul>
+        <% document.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-4">
+    <%= form.label :description, class: "block text-gray-700 font-bold mb-2" %>
+    <%= form.text_field :description, class: "form-input mt-1 block w-full" %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :link, class: "block text-gray-700 font-bold mb-2" %>
+    <%= form.text_field :link, class: "form-input mt-1 block w-full" %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :key, class: "block text-gray-700 font-bold mb-2" %>
+    <%= form.text_field :key, class: "form-input mt-1 block w-full" %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :token, class: "block text-gray-700 font-bold mb-2" %>
+    <%= form.text_field :token, class: "form-input mt-1 block w-full" %>
+  </div>
+
+  <div class="flex items-center justify-between">
+    <%= form.submit "Save", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+    <%= link_to "Cancel", documents_path, class: "bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" %>
+  </div>
+<% end %>

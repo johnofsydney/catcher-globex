@@ -1,0 +1,27 @@
+<div id="<%= dom_id document %>" class="bg-white rounded-lg shadow-lg p-6">
+  <p class="text-gray-700 mb-4">
+    <strong class="text-gray-900">Description:</strong>
+    <%= document.description %>
+  </p>
+
+  <p class="text-gray-700 mb-4">
+    <strong class="text-gray-900">Link:</strong>
+    <%= link_to document.link, document.link, class: "text-blue-500 hover:underline" %>
+  </p>
+
+  <% if document.link.end_with?(".jpg", ".jpeg", ".png", ".gif") %>
+    <div class="mb-4">
+      <%= image_tag document.link, class: "rounded-lg shadow-lg" %>
+    </div>
+  <% end %>
+
+  <p class="text-gray-700 mb-4">
+    <strong class="text-gray-900">Key:</strong>
+    <%= document.key %>
+  </p>
+
+  <p class="text-gray-700 mb-4">
+    <strong class="text-gray-900">Token:</strong>
+    <%= document.token %>
+  </p>
+</div>
