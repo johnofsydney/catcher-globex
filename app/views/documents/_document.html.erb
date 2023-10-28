@@ -9,7 +9,7 @@
     <%= link_to document.link, document.link, class: "text-blue-500 hover:underline" %>
   </p>
 
-  <% if document.link.end_with?(".jpg", ".jpeg", ".png", ".gif") %>
+  <% if document.link.end_with?(".jpg", ".jpeg", ".png", ".gif", "avif") %>
     <div class="mb-4">
       <%= image_tag document.link, class: "rounded-lg shadow-lg" %>
     </div>
