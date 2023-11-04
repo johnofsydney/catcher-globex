@@ -9,11 +9,17 @@
     <%= link_to document.link, document.link, class: "text-blue-500 hover:underline" %>
   </p>
 
-  <% if document.link.end_with?(".jpg", ".jpeg", ".png", ".gif", "avif") %>
-    <div class="mb-4">
-      <%= image_tag document.link, class: "rounded-lg shadow-lg" %>
-    </div>
-  <% end %>
+  <div class="mb-4">
+    <% if document.is_image? %>
+      <div class="card-image">
+        <p class="card-text"><strong> <%= link_to "Download", document.link %></strong></p>
+        <img id="main-document-image" src="<%= document.link %>" alt="Document Image" class="rounded-lg shadow-lg">
+
+      </div>
+    <% else %>
+      <%= link_to "Download Document", document.link, class: "btn btn-primary" %>
+    <% end %>
+  </div>
 
   <p class="text-gray-700 mb-4">
     <strong class="text-gray-900">Key:</strong>
